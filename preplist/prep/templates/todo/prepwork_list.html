@@ -1,0 +1,21 @@
+{% extends "items/base.html "%}
+{% block title_block %}
+  Do Work Son
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Here's a list of what needs to be done.</h1>
+  <br>
+<div class="content-container">
+  <div class="shadow-sm p-3 mb-5 bg-white rounded">
+  <ul class="list-group">
+    {% for obj in object_list %}
+      <li class="list-group-item"><a href="{{obj.get_absolute_url}}">{{ obj.day_of_week }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  </div>
+  </div>
+  </div>
+{% endblock %}

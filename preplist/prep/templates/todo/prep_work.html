@@ -1,0 +1,26 @@
+{% extends "items/base.html "%}
+{% block title_block %}
+Prep Work
+{% endblock %}
+
+
+{% block content %}
+<div class="jumbotron">
+<h1 class="display-4">Prep list builder. </h1>
+<p>Type the product name, give a breif description of how & what needs to be done.</p>
+  <form method="POST">{% csrf_token %}
+    <div class="form-group row">
+      <div class="shadow-sm p-3 mb-5 bg-white rounded">
+        <table>
+          <tbody>
+            {{form.as_table}}
+          </tbody>
+        </table>
+      <div class="mx-auto" style="width: 200px;">
+        <br>
+        <input class="btn btn-outline-primary btn-md"type="submit" value="Submit">{% csrf_token %}
+      </div>
+      </div>
+    </div>
+  </form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "items/base.html "%}
+{% block title_block %}
+  Product
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Total amount per week</h1>
+  <br>
+<div class="content-container">
+  <ul class="list-group">
+    {% for product in object_list %}
+      <li class="list-group-item">{{ product.product_name }} - weekly par amount <span class="">{{ product.par_amount }}</span></li>
+      <br>
+      <form  method="POST">
+        <input type="number" name="" value="">
+      </form>
+    {% endfor %}
+  </ul>
+  <input class="btn btn-primary btn-lg"type="submit" value="Submit Order">{% csrf_token %}
+</div>
+{% endblock %}
