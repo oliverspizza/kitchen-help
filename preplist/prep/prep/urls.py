@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-#from items.views import items
+from prep.views import HomPageView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',HomPageView.as_view(),name='home'),
     path('',include('items.urls')),
     path('',include('todo.urls')),
+    path('',include('accounts.urls')),
 
 ]

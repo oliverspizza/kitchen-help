@@ -6,6 +6,7 @@ from .models import PrepWork, DAYS
 from .forms import PrepWorkForm
 from django.views.generic.edit import FormView
 from .filters import PrepWorkFilter
+from django.contrib.auth.decorators import login_required
 
 class TodoList(ListView):
     queryset = PrepWork.objects.all()
