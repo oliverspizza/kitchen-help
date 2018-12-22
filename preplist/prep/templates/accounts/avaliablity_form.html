@@ -1,0 +1,26 @@
+{% extends 'items/base.html' %}
+{% block title_block %}
+Time Off
+{% endblock %}
+
+
+{% block content %}
+<div class="jumbotron">
+<h1 class="display-4">Requested time off. </h1>
+<p>Put time you are not available.</p>
+  <form method="POST">{% csrf_token %}
+    <div class="form-group row">
+      <div class="shadow-sm p-3 mb-5 bg-white rounded">
+        <table>
+          <tbody>
+            {{form.as_table}}
+          </tbody>
+        </table>
+      <div class="mx-auto" style="width: 200px;">
+        <br>
+        <input class="btn btn-outline-primary btn-md"type="submit" value="Submit">{% csrf_token %}
+      </div>
+      </div>
+    </div>
+  </form>
+{% endblock %}

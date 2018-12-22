@@ -33,6 +33,10 @@ class PrepUpdate(LoginRequiredMixin,UpdateView):
     fields = ['item','description','day_of_week']
     template_name = 'todo/prepwork_form.html'
 
+    def get_object(self):
+        id = self.kwargs.get("id")
+        return get_object_or_404(PrepWork, id=id)
+
 class PrepDelete(LoginRequiredMixin,DeleteView):
     template_name = 'todo/prepwork_delete.html'
     #model = PrepWork

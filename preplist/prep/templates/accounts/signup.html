@@ -4,10 +4,17 @@
 {% endblock %}
 
 {% block content %}
-<h1>Signup</h1>
-<form class="site-form" action="/accounts/signup/" method="post">
-  {% csrf_token %}
-  {{ form }}
-  <input type="submit" name="" value="Sign up">
+<h1>Sign Up</h1>
+
+<div class="container shadow p-3 mb-5 bg-white rounded">
+<form class="site-form" method="POST">{% csrf_token %}
+  <div class="card">
+    <div class="card-body">
+    {{ form.as_p }}
+    <input class="btn btn-outline-primary btn-md" type="submit" name="" value="Sign up">
+    </div>
+  </div>
 </form>
+</div>
+
 {% endblock %}

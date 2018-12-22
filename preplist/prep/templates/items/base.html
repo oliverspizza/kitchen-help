@@ -25,15 +25,29 @@
        <li class="nav-item">
          <a class="nav-link" href="{% url 'todo:dailyprep' %}"style="color:white">Prep List</a>
        </li>
+       {% if user.is_authenticated %}
        <li class="nav-item">
          <a class="nav-link" href="{% url 'todo:prepcreate' %}"style="color:white">Prep list maker</a>
        </li>
        <li class="nav-item">
-         <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
-           {% csrf_token %}
-           <button class="btn btn-outline-info btn-sm"type="submit">Logout</button>
-         </form>
+         <a class="nav-link" href="{% url 'accounts:logout' %}" style="color:white">Logout</a>
        </li>
+       <li class="nav-item">
+          <a class="nav-link" href="{% url 'accounts:avaliablity_create' %}" style="color:white">Request time off</a>
+       </li>
+       {% else %}
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'accounts:signup' %}" style="color:white">Sign Up</a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'accounts:login' %}" style="color:white">Login</a>
+       </li>
+       {% endif %}
+       {% if user.is_authenticated %}
+       <li class="nav-item">
+         <a class="nav-link" href="#" style="color:white"> Hello {{ user.username }}</a>
+       </li>
+       {% endif %}
      </ul>
    </div>
     </nav>

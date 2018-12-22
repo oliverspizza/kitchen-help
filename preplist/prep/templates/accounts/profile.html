@@ -6,7 +6,8 @@
 <div class="container">
   {% block content %}
   {% if user.is_authenticated %}
-    <h1>Hi {{ user.email }}!</h1>
+    <h1>Hi {{ user.first_name }}!</h1>
+    <p>{{ user.not_available }}</p>
   {% else %}
     <p>You are not logged in</p>
   {% endif %}
