@@ -6,8 +6,12 @@
 <div class="container">
   {% block content %}
   {% if user.is_authenticated %}
-    <h1>Hi {{ user.first_name }}!</h1>
-    <p>{{ user.not_available }}</p>
+    <h1>Hi {{ user.first_name }}.</h1>
+    <ul>
+      {% for day in day_off %}
+      <li>Requesting off:( {{ day.not_available|date:"M d,Y" }} )</li>
+      {% endfor %}
+    </ul>
   {% else %}
     <p>You are not logged in</p>
   {% endif %}

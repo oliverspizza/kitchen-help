@@ -38,7 +38,8 @@ def logout_view(request):
 
 
 def profile(request):
-    args = {'user':request.user}
+    day_off = Avaliablity.objects.all()
+    args = {'user':request.user, 'day_off':day_off}
     return render(request,'accounts/profile.html',args)
 
 def edit_profile(request):
