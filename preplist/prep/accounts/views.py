@@ -38,8 +38,9 @@ def logout_view(request):
 
 
 def profile(request):
-    day_off = Avaliablity.objects.all()
-    args = {'user':request.user, 'day_off':day_off}
+    user = request.user
+    day_off  = Avaliablity.objects.filter(person=request.user)
+    args = {'user':user, 'day_off':day_off}
     return render(request,'accounts/profile.html',args)
 
 def edit_profile(request):
@@ -66,13 +67,12 @@ class AvaliablityUpdate(LoginRequiredMixin,UpdateView):
     fields = ['person','not_available']
     template_name = 'todo/prepwork_form.html'
 
-#class AvaliablityDelete(LoginRequiredMixin,DeleteView):
-    #template_name = 'todo/prepwork_delete.html'
-    #model = PrepWork
+class AvaliablityDelete(LoginRequiredMixin,DeleteView):
+    template_name = 'accounts/avaliablity_delete.html'
 
-    # def get_object(self):
-    #     id = self.kwargs.get("id")
-    #     return get_object_or_404(Avaliablity, id=id)
-
-    # def get_success_url(self):
-    #     return ('/thanks/')
+    def get_object(self):
+        id = self.kwargs.get("id")
+        return get_object_or_404(Avaliablity, id=id)
+        
+    def get_success_url(self):
+        return ('/thanks/')

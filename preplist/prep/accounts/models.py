@@ -12,7 +12,7 @@ class Avaliablity(models.Model):
 
 '''
     -need User(id) to authunicate/associate only that id.(id can only control CRUD for that id unless in admin section)
-    -add button for edit, add and delete.
+    -add button for delete day request off.
     -Need a new your time has been submitted "success_url" for avaliablity_form
     -only list days associated with that users profile(id).
     -only allow 3 people to request a day off at a time.
