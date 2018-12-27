@@ -3,6 +3,7 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import Avaliablity
+from django.db import models
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(required=True)

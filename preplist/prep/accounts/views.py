@@ -10,6 +10,7 @@ from django.contrib.auth.forms import UserChangeForm
 from accounts.models import Avaliablity
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 def signup_view(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -73,6 +74,20 @@ class AvaliablityDelete(LoginRequiredMixin,DeleteView):
     def get_object(self):
         id = self.kwargs.get("id")
         return get_object_or_404(Avaliablity, id=id)
-        
+
     def get_success_url(self):
         return ('/thanks/')
+
+# @login_required(login_url="/accounts/login/")
+# def avaliablity_create(request):
+#     if request.method == 'POST':
+#         form = AvaliablityForm(request.POST)
+#         if form.is_valid():
+#             # save article to db
+#             instance = form.save(commit=False)
+#             instance.person = request.user
+#             instance.save()
+#             return redirect('accounts:profile')
+#     else:
+#         form = AvaliablityForm()
+#     return render(request, 'accounts/avaliablity_form.html', { 'form': form })
