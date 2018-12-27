@@ -42,4 +42,4 @@ class EditProfileForm(UserChangeForm):
 class AvaliablityForm(ModelForm):
     class Meta:
         model = Avaliablity
-        fields = ['person','not_available']
+        fields = ['not_available']

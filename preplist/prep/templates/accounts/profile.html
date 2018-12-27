@@ -3,17 +3,23 @@
   Home
 {% endblock %}
 
-<div class="container">
-  {% block content %}
+{% block content %}
+<div class="jumbotron">
+  <div class="content-container">
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">
+
   {% if user.is_authenticated %}
-    <h1>Hi {{ user.first_name }}.</h1>
-    <ul>
+    <h1 class="display-4">Hi {{ user.first_name }}.</h1>
+    <ul class="list-group">
       {% for day in day_off %}
-      <li>Requesting off:( {{ day.not_available|date:"M d,Y" }} )</li>
+      <li class="list-group-item" href="#">Requested off:( {{ day.not_available|date:"M d,Y" }} )</li>
       {% endfor %}
     </ul>
   {% else %}
     <p>You are not logged in</p>
   {% endif %}
-  {% endblock %}
+
+  </div>
 </div>
+</div>
+{% endblock %}

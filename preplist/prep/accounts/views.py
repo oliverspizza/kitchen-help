@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from accounts.forms import SignUpForm, EditProfileForm, AvaliablityForm
+from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views import generic
 from django.urls import reverse_lazy
@@ -57,9 +58,12 @@ def edit_profile(request):
 class AvaliablityCreate(LoginRequiredMixin, CreateView):
     form_class = AvaliablityForm
     template_name = 'accounts/avaliablity_form.html'
-    success_url = '/thanks/'
+    success_url = '/accounts/avaliablity_confirm/'
 
     def form_valid(self,form):
+        #arg = Avaliablity.objects.all() #need to filter by date, cause error after 3 requested days off.
+        #print(arg)
+        form.instance.person = self.request.user
         return super().form_valid(form)
 
 class AvaliablityUpdate(LoginRequiredMixin,UpdateView):
@@ -73,6 +77,9 @@ class AvaliablityDelete(LoginRequiredMixin,DeleteView):
     def get_object(self):
         id = self.kwargs.get("id")
         return get_object_or_404(Avaliablity, id=id)
-        
+
     def get_success_url(self):
-        return ('/thanks/')
+        return ('/accounts/profile/')
+
+class AvaliablityConfirm(TemplateView):
+    template_name = "accounts/avaliablity_confirm.html"
