@@ -45,7 +45,7 @@
        {% endif %}
        {% if user.is_authenticated %}
        <li class="nav-item">
-         <a class="nav-link" href="{% url 'accounts:profile' %}" style="color:white"> Hello {{ user.username }}</a>
+         <a class="nav-link" href="{% url 'accounts:profile' %}" style="color:white">{{ user.username|capfirst }}'s Profile</a>
        </li>
        {% endif %}
      </ul>

@@ -10,6 +10,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 from accounts.models import Avaliablity
 from django.contrib.auth.mixins import LoginRequiredMixin
+from datetime import date
+from accounts.filters import AvaliablityFilter
 
 
 def signup_view(request):
@@ -62,10 +64,15 @@ class AvaliablityCreate(LoginRequiredMixin, CreateView):
     success_url = '/accounts/avaliablity_confirm/'
 
     def form_valid(self,form):
-        #arg = Avaliablity.objects.all() #need to filter by date, cause error after 3 requested days off.
-        #print(arg)
+        # dayoff = Avaliablity.objects.all()
+        # if form == dayoff:
+        #     print ('')
         form.instance.person = self.request.user
         return super().form_valid(form)
+
+def available(request):
+    f = AvaliablityFilter(request.GET, queryset=Avaliablity.objects.all())
+    return render (request,'accounts/avafilter.html',{'filter':f})
 
 class AvaliablityUpdate(LoginRequiredMixin,UpdateView):
     model = Avaliablity

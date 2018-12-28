@@ -1,0 +1,25 @@
+{% extends 'items/base.html' %}
+{% block title_block %}
+Daily Filter
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Requested time off.</h1>
+    <p>No more then three people allowed to request a weekend day, or holiday off.</p>
+    <form action="" method="get">
+        {{ filter.form.as_p }}
+        <input class='btn btn-outline-info' type="submit" value='Click' />
+    </form>
+    <ul class="list-group list-group-flush">
+      {% for obj in filter.qs %}
+          <li class="list-group-item">{{ obj.person|capfirst }} Requested {{obj.not_available}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+
+
+{% endblock %}

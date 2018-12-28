@@ -6,6 +6,7 @@ from accounts.views import (
     AvaliablityCreate,
     AvaliablityConfirm,
     AvaliablityDelete,
+    available,
     )
 app_name ='accounts'
 
@@ -13,6 +14,7 @@ urlpatterns = [
     path('accounts/signup/', views.signup_view,name="signup"),
     path('login/', views.login_view,name="login"),
     path('logout/', views.logout_view,name="logout"),
+    path('accounts/available_filter/', views.available,name="available_filter"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/profile/',views.profile,name="profile"),
     path('accounts/edit_profile/',views.edit_profile,name="edit_profile"),
