@@ -1,0 +1,14 @@
+{% extends 'items/base.html' %}
+{% block title_block %}
+  Home
+{% endblock %}
+
+<div class="container">
+  {% block content %}
+  {% if user.is_authenticated %}
+    <h1>Hi {{ user|capfirst }}!</h1>
+  {% else %}
+    <p>You are not logged in</p>
+  {% endif %}
+  {% endblock %}
+</div>

@@ -1,0 +1,15 @@
+{% extends 'items/base.html' %}
+{% block title_block %}
+Delete Item
+{% endblock %}
+
+
+{% block content %}
+<div class="jumbotron">
+<h1 class="display-4">Item to be deleted. </h1>
+<p>Are you sure you want to remove this day?</p>
+  <form method="POST">{% csrf_token %}
+    <h1>Are you sure you want to delete"{{object.not_available}}"</h1>
+    <p><input type="submit" name="" value="Yes"><a href="../">Cancel</a></p>
+  </form>
+{% endblock %}

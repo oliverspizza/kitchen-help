@@ -1,0 +1,26 @@
+{% extends 'items/base.html' %}
+{% block title_block %}
+  Home
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <div class="content-container">
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">
+
+  {% if user.is_authenticated %}
+    <h1 class="display-4">Hi {{ user|capfirst }}.</h1>
+    <p>These are the days you have requested, <strong>but are not guaranteed</strong> off.</p>
+    <ul class="list-group">
+      {% for day in day_off %}
+      <li class="list-group-item" ><a href="{{ day.get_absolute_url }}">Requested off:( {{ day.not_available|date:"M d,Y" }} )</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>You are not logged in</p>
+  {% endif %}
+
+  </div>
+</div>
+</div>
+{% endblock %}

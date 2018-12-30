@@ -1,4 +1,4 @@
-{% extends "items/base.html" %}
+{% extends 'items/base.html' %}
 {% block title_block %}
 Daily Filter
 {% endblock %}
@@ -13,7 +13,7 @@ Daily Filter
     </form>
     <ul class="list-group list-group-flush">
       {% for obj in filter.qs %}
-          <li class="list-group-item">{{ obj.day_of_week }} - {{ obj.item }} {{obj.description}}</li>
+          <li class="list-group-item">{{ obj.day_of_week }} - {{ obj.item|capfirst }} {{obj.description}}</li>
       {% endfor %}
     </ul>
   </div>

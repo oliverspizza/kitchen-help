@@ -6,12 +6,13 @@ from .models import PrepWork, DAYS
 from .forms import PrepWorkForm
 from django.views.generic.edit import FormView
 from .filters import PrepWorkFilter
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class TodoList(ListView):
     queryset = PrepWork.objects.all()
     template_name = 'todo/prepwork_list.html'
 
-class PrepWorkDetail(DetailView):
+class PrepWorkDetail(LoginRequiredMixin, DetailView):
     queryset = PrepWork.objects.all()
     template_name = 'todo/prepwork_detail.html'
 
@@ -19,7 +20,7 @@ class PrepWorkDetail(DetailView):
         id_ = self.kwargs.get("id")
         return get_object_or_404(PrepWork, id=id_)
 
-class PrepCreate(CreateView):
+class PrepCreate(LoginRequiredMixin, CreateView):
     form_class = PrepWorkForm
     template_name = 'todo/prepwork_form.html'
     success_url = '/thanks/'
@@ -27,12 +28,16 @@ class PrepCreate(CreateView):
     def form_valid(self,form):
         return super().form_valid(form)
 
-class PrepUpdate(UpdateView):
+class PrepUpdate(LoginRequiredMixin,UpdateView):
     model = PrepWork
     fields = ['item','description','day_of_week']
     template_name = 'todo/prepwork_form.html'
 
-class PrepDelete(DeleteView):
+    def get_object(self):
+        id = self.kwargs.get("id")
+        return get_object_or_404(PrepWork, id=id)
+
+class PrepDelete(LoginRequiredMixin,DeleteView):
     template_name = 'todo/prepwork_delete.html'
     #model = PrepWork
 
