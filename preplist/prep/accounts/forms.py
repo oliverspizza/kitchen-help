@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import Avaliablity
 from django.db import models
+from django.core.exceptions import ValidationError
+
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -44,3 +46,11 @@ class AvaliablityForm(ModelForm):
     class Meta:
         model = Avaliablity
         fields = ['not_available']
+
+    # def clean_not_available(self):
+    #     #y = Avaliablity.objects.filter(not_available__)
+    #     x = self.cleaned_data.get('not_available')
+    #     if not x in y:
+    #         raise ValidationError("nope")
+    #     print (x)
+    #     return x
