@@ -1,6 +1,6 @@
 {% extends 'items/base.html' %}
 {% block title_block %}
-  Home
+Old Post
 {% endblock %}
 
 {% block content %}
@@ -12,8 +12,8 @@
     <h1 class="display-4">Hi {{ user|capfirst }}.</h1>
     <p>These are the days you have requested, <strong>but are not guaranteed</strong>off.</p>
     <ul class="list-group">
-      {% for day in day_off %}
-      <li class="list-group-item" ><a href="{{ day.get_absolute_url }}">Requested off:( {{ day.not_available|date:"M d,Y" }} )</a></li>
+      {% for d in days %}
+      <li class="list-group-item">Requested off:( {{ day.not_available|date:"M d,Y" }} )</li>
       {% endfor %}
     </ul>
   {% else %}

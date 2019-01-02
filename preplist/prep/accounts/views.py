@@ -64,9 +64,6 @@ class AvaliablityCreate(LoginRequiredMixin, CreateView):
     success_url = '/accounts/avaliablity_confirm/'
 
     def form_valid(self,form):
-        # dayoff = Avaliablity.objects.all()
-        # if form == dayoff:
-        #     print ('')
         form.instance.person = self.request.user
         return super().form_valid(form)
 
@@ -91,3 +88,9 @@ class AvaliablityDelete(LoginRequiredMixin,DeleteView):
 
 class AvaliablityConfirm(TemplateView):
     template_name = "accounts/avaliablity_confirm.html"
+
+
+def old_post(request):
+    days = Avaliablity.objects.date('not_available','year')
+    print (days)
+    return render(request,'accounts/profile.html',days)

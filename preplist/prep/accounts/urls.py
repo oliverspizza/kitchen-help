@@ -7,11 +7,13 @@ from accounts.views import (
     AvaliablityConfirm,
     AvaliablityDelete,
     available,
+    old_post,
     )
 app_name ='accounts'
 
 urlpatterns = [
     path('accounts/signup/', views.signup_view,name="signup"),
+    path('accounts/old_post/', views.old_post,name="old_post"),
     path('login/', views.login_view,name="login"),
     path('logout/', views.logout_view,name="logout"),
     path('accounts/available_filter/', views.available,name="available_filter"),
