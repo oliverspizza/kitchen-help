@@ -8,9 +8,6 @@ from django.views.generic.edit import FormView
 from .filters import PrepWorkFilter
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-class TodoList(ListView):
-    queryset = PrepWork.objects.all()
-    template_name = 'todo/prepwork_list.html'
 
 class PrepWorkDetail(LoginRequiredMixin, DetailView):
     queryset = PrepWork.objects.all()

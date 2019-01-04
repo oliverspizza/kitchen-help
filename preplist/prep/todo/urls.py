@@ -1,7 +1,6 @@
 from django.urls import path
 from . import views
 from todo.views import (
-    TodoList,
     PrepCreate,
     PrepUpdate,
     PrepDelete,

@@ -95,5 +95,5 @@ def old_post(request):
     tomorrow = today + timedelta(1)
     yesterday = today - timedelta(1)
     days = Avaliablity.objects.all().order_by('not_available').filter(not_available__lt=yesterday).delete()
-    #print (days)
+    print (days)
     return render(request,'accounts/old_post.html',{'days':days})
