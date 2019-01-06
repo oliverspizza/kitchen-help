@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 from accounts.models import Avaliablity
 from django.contrib.auth.mixins import LoginRequiredMixin
-from datetime import date
+from datetime import date, timedelta, datetime
 from accounts.filters import AvaliablityFilter
 
 
@@ -91,6 +91,9 @@ class AvaliablityConfirm(TemplateView):
 
 
 def old_post(request):
-    days = Avaliablity.objects.date('not_available','year')
+    today = datetime.now().date()
+    tomorrow = today + timedelta(1)
+    yesterday = today - timedelta(1)
+    days = Avaliablity.objects.all().order_by('not_available').filter(not_available__lt=yesterday).delete()
     print (days)
-    return render(request,'accounts/profile.html',days)
+    return render(request,'accounts/old_post.html',{'days':days})

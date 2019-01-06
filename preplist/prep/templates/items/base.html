@@ -29,14 +29,14 @@
        <li class="nav-item">
          <a class="nav-link" href="{% url 'todo:prepcreate' %}"style="color:white">Prep list maker</a>
        </li>
-       <li class="nav-item">
+       <li class="nav-item nav">
          <a class="nav-link" href="{% url 'accounts:logout' %}" style="color:white">Logout</a>
        </li>
        <li class="nav-item">
           <a class="nav-link" href="{% url 'accounts:avaliablity_create' %}" style="color:white">Request time off</a>
        </li>
        <li class="nav-item">
-          <a class="nav-link" href="{% url 'accounts:available_filter' %}" style="color:white">Hub</a>
+          <a class="nav-link" href="{% url 'accounts:available_filter' %}" style="color:white">Listed time off</a>
        </li>
        {% else %}
        <li class="nav-item">
@@ -48,7 +48,7 @@
        {% endif %}
        {% if user.is_authenticated %}
        <li class="nav-item">
-         <a class="nav-link" href="{% url 'accounts:profile' %}" style="color:white">{{ user.username|capfirst }}'s Profile</a>
+         <a class="nav-link" href="{% url 'accounts:profile' %}" style="color:white">{{ user.username|capfirst }}'s Profile page</a>
        </li>
        {% endif %}
      </ul>
