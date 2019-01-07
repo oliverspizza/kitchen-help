@@ -4,13 +4,14 @@ Daily Filter
 {% endblock %}
 
 {% block content %}
-<div class="jumbotron jumbotron-fluid">
+
   <div class="container">
     <h1 class="display-4">Requested time off.</h1>
-    <p>No more then three people allowed to request a weekend day, or holiday off.</p>
+    <p class="text-center">No more then three people allowed to request a weekend day, or holiday off.</p>
+
     <form action="" method="get">
         {{ filter.form.as_p }}
-        <input class='btn btn-outline-info' type="submit" value='Click' />
+        <input class='btn btn-outline-info' type="submit" value='Submit' />
     </form>
     <ul class="list-group list-group-flush">
       {% for obj in filter.qs %}
@@ -18,7 +19,7 @@ Daily Filter
       {% endfor %}
     </ul>
   </div>
-</div>
+
 
 
 
