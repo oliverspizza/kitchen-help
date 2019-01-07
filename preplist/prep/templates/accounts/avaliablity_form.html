@@ -4,8 +4,8 @@ Time Off
 {% endblock %}
 
 
-{% block content %}
-<div class="jumbotron">
+
+<!--<div class="jumbotron">
 <h1 class="display-4">Request time off. </h1>
 <p>Put time you <strong>are not</strong> available.</p>
   <form method="POST">{% csrf_token %}
@@ -22,5 +22,17 @@ Time Off
       </div>
       </div>
     </div>
-  </form>
+  </form>-->
+{% block content %}
+<h1 class="display-4 text-center">Request time off. </h1>
+<p class="text-center">Put time you <strong>are not</strong> available.</p>
+  <!--Form Container-->
+  <div class="container text-center"">
+      <form  action="{% url 'accounts:avaliablity_create' %}" method="post"
+          class="form">
+            {% csrf_token %}
+            {{ form }}<br>
+          <button type="submit" class="btn btn-outline-primary text-center">Submit</button>
+      </form>
+  </div>
 {% endblock %}

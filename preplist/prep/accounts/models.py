@@ -2,12 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from accounts.validators import validate_even
+from django import forms
 
 
 class Avaliablity(models.Model):
     person = models.ForeignKey(User, on_delete=models.CASCADE,default=None, help_text="Make sure you select your name.")
-    not_available = models.DateField(help_text="Date format must be typed like so: 2018-12-25",default=None) #validators=[validate_even]
-    time_stamp = models.DateTimeField(auto_now_add=True,null=False)
+    not_available = models.DateField(help_text="You can only select one date per submit.",default=None) #validators=[validate_even]
+    time_stamp = models.DateTimeField(auto_now_add=True,null=False,)
 
     def __int__(self):
         return self.not_available

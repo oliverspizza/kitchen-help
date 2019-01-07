@@ -46,7 +46,7 @@ class AvaliablityForm(ModelForm):
     class Meta:
         model = Avaliablity
         fields = ['not_available']
-
+        widgets = {'not_available': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date','type':'date'})}
     # def clean_not_available(self):
     #     #y = Avaliablity.objects.filter(not_available__)
     #     x = self.cleaned_data.get('not_available')

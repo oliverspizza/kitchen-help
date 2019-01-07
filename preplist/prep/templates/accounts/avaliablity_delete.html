@@ -6,9 +6,10 @@ Delete Item
 
 {% block content %}
 <div class="jumbotron">
-<h1 class="display-4">Day to be deleted. </h1>
+<h1 class="display-4">Day to be deleted.</h1><br>
   <form method="POST">{% csrf_token %}
     <h1>Are you sure you want to delete {{object.not_available}}?</h1>
-    <p><input class="btn btn-primary"type="submit" name="" value="Yes"><br><a class="btn btn-secondary" href={% url 'accounts:profile'%}> Cancel</a></p>
+    <input class="btn btn-outline-danger"type="submit" name="" value="Yes"><br><br><a class="btn btn-outline-secondary" href={% url 'accounts:profile'%}> Cancel</a>
   </form>
+  <h5><strong>You can't undo this!</strong></h5>
 {% endblock %}
