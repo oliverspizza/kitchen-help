@@ -5,8 +5,10 @@
 
 {% block content %}
 <h1>Login</h1>
-<form class="site-form" action="{% url 'accounts:login' %}" method="post">{% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" name="" value="Login">
-</form>
+<div class="container shadow p-3 mb-5 bg-white rounded">
+  <form class="site-form" action="{% url 'accounts:login' %}" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="" value="Login">
+  </form>
+</div>
 {% endblock %}
