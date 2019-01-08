@@ -7,15 +7,15 @@ Daily Filter
 
   <div class="container">
     <h1 class="display-4">Requested time off.</h1>
-    <p class="text-center">No more then three people allowed to request a weekend day, or holiday off.</p>
-
+    <p class="text-center"><strong>No more then three people allowed to request a weekend day,
+      or holiday off.</strong> You can see what days have been requested by filtering.</p>
     <form action="" method="get">
         {{ filter.form.as_p }}
         <input class='btn btn-outline-info' type="submit" value='Submit' />
     </form>
     <ul class="list-group list-group-flush">
       {% for obj in filter.qs %}
-          <li class="list-group-item"><strong>{{ obj.person|capfirst }} Requested {{obj.not_available}},</strong> <br><small>requested on: {{obj.time_stamp}}</small></li>
+          <li class="list-group-item"><strong>{{ obj.person|capfirst }} is requesting {{obj.not_available}},</strong><br><small>requested on: {{obj.time_stamp}}</small></li>
       {% endfor %}
     </ul>
   </div>

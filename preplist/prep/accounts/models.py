@@ -18,7 +18,6 @@ class Avaliablity(models.Model):
         return reverse('accounts:avaliablity_delete', kwargs={'id':self.id})
 
 '''
-    -add button for delete day request off / link (href) per querset id .
     -only allow 3 people to request a day off at a time.
     -add stmp server, with gmail account
 '''

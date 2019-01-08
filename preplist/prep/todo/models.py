@@ -12,7 +12,7 @@ DAYS = (
        )
 
 class PrepWork(models.Model):
-    item = models.CharField(blank='False',max_length=200, help_text="Add one item at a time. ")
+    item = models.CharField(blank='False',max_length=200,)
     description = models.TextField(blank='False',help_text="Add instructions to remove any confusion. ", max_length=200)
     day_of_week = models.CharField(blank='False', max_length=20, choices=DAYS, help_text="Please set the day of week. ")
 
