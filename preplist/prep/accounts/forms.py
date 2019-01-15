@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import Avaliablity
 from django.db import models
 from django.core.exceptions import ValidationError
+from datetime import date, timedelta, datetime
 
 
 class SignUpForm(UserCreationForm):
@@ -47,10 +48,15 @@ class AvaliablityForm(ModelForm):
         model = Avaliablity
         fields = ['not_available']
         widgets = {'not_available': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date','type':'date'})}
+
+
     # def clean_not_available(self):
-    #     #y = Avaliablity.objects.filter(not_available__)
+    #     today = datetime.today()
+    #     tomorrow = today + timedelta(1)
+    #     yesterday = today - timedelta(1)
     #     x = self.cleaned_data.get('not_available')
-    #     if not x in y:
+    #     y = Avaliablity.objects.filter(not_available__lte=today)
+    #     if x is y:
     #         raise ValidationError("nope")
-    #     print (x)
+    #     print (y)
     #     return x
