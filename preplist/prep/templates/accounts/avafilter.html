@@ -15,7 +15,7 @@ Daily Filter
     </form>
     <ul class="list-group list-group-flush">
       {% for obj in filter.qs %}
-          <li class="list-group-item"><strong>{{ obj.person|capfirst }} is requesting {{obj.not_available}},</strong><br><small>requested on: {{obj.time_stamp}}</small></li>
+          <li class="list-group-item"><strong>{{ obj.person|capfirst }} is requesting {{obj.not_available|date:"D d M"}},</strong><br><small>requested on: {{obj.time_stamp}}</small></li>
       {% endfor %}
     </ul>
   </div>

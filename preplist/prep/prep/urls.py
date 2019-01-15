@@ -24,5 +24,6 @@ urlpatterns = [
     path('',include('items.urls')),
     path('',include('todo.urls')),
     path('',include('accounts.urls')),
+    path('',include('cal.urls')),
 
 ]

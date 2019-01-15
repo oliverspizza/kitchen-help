@@ -3,29 +3,9 @@
 Time Off
 {% endblock %}
 
-
-
-<!--<div class="jumbotron">
-<h1 class="display-4">Request time off. </h1>
-<p>Put time you <strong>are not</strong> available.</p>
-  <form method="POST">{% csrf_token %}
-    <div class="form-group row">
-      <div class="shadow-sm p-3 mb-5 bg-white rounded">
-        <table>
-          <tbody>
-            {{form.as_table}}
-          </tbody>
-        </table>
-      <div class="mx-auto" style="width: 200px;">
-        <br>
-        <input class="btn btn-outline-primary btn-md"type="submit" value="Submit">{% csrf_token %}
-      </div>
-      </div>
-    </div>
-  </form>-->
 {% block content %}
 <h1 class="display-4 text-center">Request time off. </h1>
-<p class="text-center">Put time you <strong>are not</strong> available.</p>
+<p class="text-center">Put times you <strong>are not</strong> available.</p>
   <!--Form Container-->
   <div class="container text-center"">
       <form  action="{% url 'accounts:avaliablity_create' %}" method="post"

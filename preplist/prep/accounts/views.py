@@ -68,7 +68,7 @@ class AvaliablityCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 def available(request):
-    f = AvaliablityFilter(request.GET, queryset=Avaliablity.objects.all())
+    f = AvaliablityFilter(request.GET, queryset=Avaliablity.objects.all().order_by('not_available'))
     return render (request,'accounts/avafilter.html',{'filter':f})
 
 class AvaliablityUpdate(LoginRequiredMixin,UpdateView):
