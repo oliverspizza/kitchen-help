@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_filters',
     'accounts.apps.AccountsConfig',
     'crispy_forms',
+    'cal.apps.CalConfig',
 ]
 
 MIDDLEWARE = [

@@ -10,8 +10,8 @@ class Avaliablity(models.Model):
     not_available = models.DateField(help_text="You can only select one date per submit.",default=None) #validators=[validate_even]
     time_stamp = models.DateTimeField(auto_now_add=True,null=False,)
 
-    def __int__(self):
-        return self.not_available
+    def __str__(self):
+        return str(self.person)
 
 
     def get_absolute_url(self):

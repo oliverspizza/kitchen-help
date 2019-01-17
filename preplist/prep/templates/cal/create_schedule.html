@@ -1,0 +1,18 @@
+{% extends 'items/base.html' %}
+{% block title_block %}
+Schedule Maker
+{% endblock %}
+
+{% block content %}
+<h1 class="display-4 text-center">Done by date </h1>
+<p class="text-center">test test</p>
+  <!--Form Container-->
+  <div class="container text-center"">
+      <form  action="{% url 'accounts:avaliablity_create' %}" method="post"
+          class="form">
+            {% csrf_token %}
+            {{ form }}<br>
+          <button type="submit" class="btn btn-outline-primary text-center">Submit</button>
+      </form>
+  </div>
+{% endblock %}
