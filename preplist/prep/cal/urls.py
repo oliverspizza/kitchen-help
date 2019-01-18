@@ -1,10 +1,11 @@
 from django.urls import path, include
-from . import views
-
+from cal.views import (
+    ScheduleFromView,
+)
 
 app_name ='cal'
 
 urlpatterns = [
-    
+    path('cal/schedule/',ScheduleFromView.as_view(),name='schedule')
 
 ]
