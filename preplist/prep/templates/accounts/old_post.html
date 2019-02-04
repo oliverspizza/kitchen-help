@@ -7,19 +7,11 @@ Old Post
 <div class="jumbotron">
   <div class="content-container">
     <div class="shadow-sm p-3 mb-5 bg-white rounded">
-
   {% if user.is_authenticated %}
-    <h1 class="display-4">Hi {{ user|capfirst }}.</h1>
-    <p>Past dates.</p>
-    <ul class="list-group">
-      {% for d in days %}
-      <li class="list-group-item"> {{d.person|capfirst}}, <strong>old request</strong> {{ d.not_available|date:"M d,Y" }} </li>
-      {% endfor %}
-    </ul>
+    <h1 class="display-4">{{ user|capfirst }} YOU JUST DELETED EVERYTHING!!!!! NONOOOO </h1>
   {% else %}
     <p>You are not logged in</p>
   {% endif %}
-
   </div>
 </div>
 </div>

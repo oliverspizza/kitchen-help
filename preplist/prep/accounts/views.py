@@ -20,7 +20,7 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()
             login(request,user)
-            return redirect('todo:dailyprep')
+            return redirect('accounts:profile')
     else:
         form = SignUpForm()
     return render(request,'accounts/signup.html',{'form':form})
@@ -92,8 +92,8 @@ class AvaliablityConfirm(TemplateView):
 
 def old_post(request):
     today = datetime.now().date()
-    tomorrow = today + timedelta(1)
-    yesterday = today - timedelta(1)
+    tomorrow = today + timedelta()
+    yesterday = today - timedelta()
     days = Avaliablity.objects.all().order_by('not_available').filter(not_available__lt=yesterday).delete()
     print (days)
     return render(request,'accounts/old_post.html',{'days':days})
