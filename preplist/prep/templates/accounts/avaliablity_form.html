@@ -5,12 +5,13 @@ Time Off
 
 {% block content %}
 <h1 class="display-4 text-center">Request time off. </h1>
-<p class="text-center">Put times you <strong>are not</strong> available.</p>
+<p class="text-center">Put times you <strong>are not</strong> available. Must requeset two weeks in advance</p>
   <!--Form Container-->
   <div class="container text-center"">
       <form  action="{% url 'accounts:avaliablity_create' %}" method="post"
           class="form">
             {% csrf_token %}
+            {{Avaliablity.time_before_day}}
             {{ form }}<br>
           <button type="submit" class="btn btn-outline-primary text-center">Submit</button>
       </form>

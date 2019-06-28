@@ -50,13 +50,12 @@ class AvaliablityForm(ModelForm):
         widgets = {'not_available': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date','type':'date'})}
 
 
-    # def clean_not_available(self):
-    #     today = datetime.today()
-    #     tomorrow = today + timedelta(1)
-    #     yesterday = today - timedelta(1)
-    #     x = self.cleaned_data.get('not_available')
-    #     y = Avaliablity.objects.filter(not_available__lte=today)
-    #     if x is y:
-    #         raise ValidationError("nope")
-    #     print (y)
-    #     return x
+    def clean_not_available(self):
+        requested = self.cleaned_data.get("not_available")
+        today = date.today()
+        notice = timedelta(days=14)
+        if requested <= (today + notice):
+            print("can't request off")
+            raise ValidationError("Request must be made two weeks in advance.")
+        else:
+            return requested
